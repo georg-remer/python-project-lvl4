@@ -17,3 +17,6 @@ migrate:
 
 run:
 	poetry run python manage.py runserver 0.0.0.0:8000
+
+run-gunicorn:
+	poetry run gunicorn task_manager.wsgi
