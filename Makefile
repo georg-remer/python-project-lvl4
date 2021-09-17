@@ -9,7 +9,7 @@ lint:
 
 check: selfcheck lint
 
-prepared-requirements:
+prepare-requirements:
 	poetry export -f requirements.txt --output requirements.txt
 
 migrate:
