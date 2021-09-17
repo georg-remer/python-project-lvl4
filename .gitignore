@@ -1,0 +1,10 @@
+*.egg-info
+__pycache__
+dist/
+*.pyc
+.venv/
+.vscode/
+.DS_Store
+.coverage
+coverage.xml
+.env
