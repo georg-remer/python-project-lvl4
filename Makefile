@@ -20,3 +20,9 @@ run:
 
 run-gunicorn:
 	poetry run gunicorn task_manager.wsgi
+
+update-locale:
+	poetry run django-admin makemessages --locale ru
+
+compile-locale:
+	poetry run django-admin compilemessages

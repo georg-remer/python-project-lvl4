@@ -1,0 +1,21 @@
+{% load bootstrap4 %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE }}">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS and JS -->
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+
+    <title>{% translate "Task manager" %}</title>
+  </head>
+  <body>
+    <h1>{% translate "Hi!" %}</h1>
+  </body>
+</html>
