@@ -1,0 +1,20 @@
+[
+    {
+        "model": "users.user",
+        "pk": 9,
+        "fields": {
+            "password": "pbkdf2_sha256$260000$7XBb36m1JpJcO38HB97HdN$ULgHlL4Hg9RenlIGKKSxluKOmIWxSFMXj8Eus8zKL/4=",
+            "last_login": "2021-09-25T13:02:15.965Z",
+            "is_superuser": false,
+            "username": "ntesla",
+            "first_name": "Nikola",
+            "last_name": "Tesla",
+            "email": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2021-09-25T13:02:10.510Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    }
+]

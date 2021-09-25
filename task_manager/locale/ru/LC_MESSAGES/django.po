@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-18 11:54+0200\n"
+"POT-Creation-Date: 2021-09-25 15:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,10 +19,95 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
-#: task_manager/templates/index.html:16
-msgid "Task manager"
+
+#: task_manager/templates/base/confirmation.html:5
+msgid "Heads up! You are about to delete"
+msgstr "Внимание! Вы собираетесь удалить"
+
+#: task_manager/templates/base/confirmation.html:8
+msgid "Yes, delete"
+msgstr "Да, удалить"
+
+#: task_manager/templates/base/main.html:10
+#: task_manager/templates/base/main.html:19
+msgid "Task Manager"
 msgstr "Менеджер задач"
 
-#: task_manager/templates/index.html:19
-msgid "Hi!"
-msgstr "Привет!"
+#: task_manager/templates/base/main.html:26
+#: task_manager/templates/users/list.html:5
+msgid "Users"
+msgstr "Пользователи"
+
+#: task_manager/templates/base/main.html:32
+msgid "Logout"
+msgstr "Выход"
+
+#: task_manager/templates/base/main.html:34 task_manager/templates/login.html:5
+msgid "Login"
+msgstr "Вход"
+
+#: task_manager/templates/base/main.html:38
+#: task_manager/templates/users/create.html:9
+msgid "Register"
+msgstr "Регистрация"
+
+#: task_manager/templates/login.html:9
+msgid "Log In"
+msgstr "Войти"
+
+#: task_manager/templates/users/create.html:5
+msgid "Create user"
+msgstr "Создать пользователя"
+
+#: task_manager/templates/users/delete.html:5
+msgid "Delete user"
+msgstr "Удалить пользователя"
+
+#: task_manager/templates/users/list.html:12
+msgid "id"
+msgstr "id"
+
+#: task_manager/templates/users/list.html:13
+msgid "username"
+msgstr "имя пользователя"
+
+#: task_manager/templates/users/list.html:14
+msgid "full name"
+msgstr "полное имя"
+
+#: task_manager/templates/users/list.html:15
+msgid "created date"
+msgstr "дата создания"
+
+#: task_manager/templates/users/list.html:27
+#: task_manager/templates/users/update.html:9
+msgid "Update"
+msgstr "Обновить"
+
+#: task_manager/templates/users/list.html:29
+msgid "Delete"
+msgstr "Удалить"
+
+#: task_manager/templates/users/update.html:5
+msgid "Update user"
+msgstr "Обновить пользвоателя"
+
+#: task_manager/users/mixins.py:13
+msgid "You do not have permission to modify another user."
+msgstr "У Вас нет прав на изменение другого пользователя."
+
+#: task_manager/users/views.py:21
+msgid "User was successfully created."
+msgstr "Пользователь был успешно создан."
+
+#: task_manager/users/views.py:29
+msgid "User was successfully updated."
+msgstr "Пользователь был успешно обновлен."
+
+#: task_manager/users/views.py:37
+msgid "User was successfully deleted."
+msgstr "Пользователь был успешно удален."
+
+#: task_manager/views.py:13
+msgid "Logged in successfully."
+msgstr "Вход успешно осуществлен."

@@ -1,0 +1,10 @@
+{% extends 'base/main.html' %}
+{% load i18n %}
+
+{% block content %}
+<p>{% translate "Heads up! You are about to delete" %} {{ object }}.</p>
+<form method="post">
+  {% csrf_token %}
+  <input class="btn btn-danger" type="submit" value="{% translate 'Yes, delete' %}">
+</form>
+{% endblock %}
