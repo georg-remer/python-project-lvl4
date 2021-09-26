@@ -5,10 +5,11 @@ from django.utils.translation import gettext as _
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
 from .forms import UserForm
-from .mixins import PermissionDeniedMixin, SelfCheckMixin
+from .mixins import SelfCheckMixin
+from task_manager.mixins import PermissionDeniedMixin
 
 
-class UsersList(ListView):
+class UserList(ListView):
     template_name = 'users/list.html'
     model = get_user_model()
 
