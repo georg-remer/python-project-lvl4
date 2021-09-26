@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
+from task_manager.labels.models import Label
 from task_manager.statuses.models import Status
 
 
@@ -31,9 +32,21 @@ class Task(models.Model):
         null=True,
         verbose_name=_('responsible'),
     )
+    labels = models.ManyToManyField(
+        Label,
+        through='TaskLabels',
+        related_name='labels',
+        blank=True,
+        verbose_name=_('labels'),
+    )
 
     def get_absolute_url(self):
         return reverse('tasks:list')
 
     def __str__(self):
         return f'{self.name}'
+
+
+class TaskLabels(models.Model):
+    task = models.ForeignKey(Task, on_delete=models.CASCADE)
+    label = models.ForeignKey(Label, on_delete=models.PROTECT)

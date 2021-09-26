@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import dj_database_url
 import os
 
-from django.urls import reverse
 from dotenv import load_dotenv
 from pathlib import Path
 
@@ -49,6 +48,7 @@ INSTALLED_APPS = [
     'task_manager.users',
     'task_manager.statuses',
     'task_manager.tasks',
+    'task_manager.labels',
 ]
 
 MIDDLEWARE = [
