@@ -19,6 +19,9 @@ check: selfcheck lint
 prepare-requirements:
 	poetry export -f requirements.txt --output requirements.txt
 
+prepare-migrations:
+	poetry run python manage.py makemigrations
+
 migrate:
 	poetry run python manage.py migrate
 

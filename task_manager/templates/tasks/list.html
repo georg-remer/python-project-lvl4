@@ -1,0 +1,42 @@
+{% extends 'base/main.html' %}
+{% load i18n %}
+
+{% block header %}
+{% translate "Tasks" %}
+{% endblock %}
+
+{% block content %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>{% translate "id"|upper %}</th>
+      <th>{% translate "name"|capfirst %}</th>
+      <th>{% translate "status"|capfirst %}</th>
+      <th>{% translate "created_by"|capfirst %}</th>
+      <th>{% translate "responsible"|capfirst %}</th>
+      <th>{% translate "created date"|capfirst %}</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for task in task_list %}
+    <tr>
+      <td>{{ task.id }}</td>
+      <td>
+        <a href="{% url 'tasks:detail' task.id %}">{{ task.name }}</a>
+      </td>
+      <td>{{ task.status }}</td>
+      <td>{{ task.created_by.get_full_name }}</td>
+      <td>{{ task.responsible.get_full_name }}</td>
+      <td>{{ task.created_at|date:"d.m.Y H:i" }}</td>
+      <td>
+        <a href="{% url 'tasks:update' task.id %}">{% translate "Update" %}</a>
+        <br>
+        <a href="{% url 'tasks:delete' task.id %}">{% translate "Delete" %}</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<a class="nav-link" href="{% url 'tasks:create' %}">{% translate "Add" %}</a>
+{% endblock %}
