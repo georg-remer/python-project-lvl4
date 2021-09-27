@@ -99,11 +99,13 @@ DATABASES = {
     }
 }
 
-db_config = dj_database_url.config()
+PG_IS_ENABLED = bool(int(os.getenv('PG_IS_ENABLED', '0')))
 
-DATABASES = {
-    'default': {**db_config},
-}
+if PG_IS_ENABLED:
+    db_config = dj_database_url.config()
+    DATABASES = {
+        'default': {**db_config},
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
