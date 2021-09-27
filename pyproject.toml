@@ -4,6 +4,10 @@ version = "0.7.1"
 description = "Task manager"
 authors = ["George Rymarenko <george.rymarenko@icloud.com>"]
 
+packages = [
+  { include = "task_manager" },
+]
+
 [tool.black]
 line-length = 120
 skip-string-normalization = '1'
