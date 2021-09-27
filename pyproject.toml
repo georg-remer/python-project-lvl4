@@ -5,6 +5,7 @@ description = "Task manager"
 authors = ["George Rymarenko <george.rymarenko@icloud.com>"]
 
 [tool.black]
+line-length = 120
 skip-string-normalization = '1'
 
 [tool.poetry.dependencies]
