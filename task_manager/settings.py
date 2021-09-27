@@ -29,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY', 'secret-key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(int(os.getenv('DEBUG', '0')))
+DEBUG = os.getenv('DEBUG') == 'True'
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split()
 
@@ -99,7 +99,7 @@ DATABASES = {
     }
 }
 
-PG_IS_ENABLED = bool(int(os.getenv('PG_IS_ENABLED', '0')))
+PG_IS_ENABLED = os.getenv('PG_IS_ENABLED') == 'True'
 
 if PG_IS_ENABLED:
     db_config = dj_database_url.config()
