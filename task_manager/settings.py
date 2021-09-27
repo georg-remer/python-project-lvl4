@@ -10,11 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
-import dj_database_url
 import os
-
-from dotenv import load_dotenv
 from pathlib import Path
+
+import dj_database_url
+from dotenv import load_dotenv
 
 # Load environment variables
 load_dotenv()
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap4',
+    'django_filters',
     'task_manager',
     'task_manager.users',
     'task_manager.statuses',
