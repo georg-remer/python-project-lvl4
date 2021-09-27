@@ -12,8 +12,8 @@ test:
 
 test-coverage:
 	poetry run coverage run --source='.' manage.py test task_manager
-	poetry run coverage html
-	poetry run coverage report -m
+	coverage html
+	coverage report -m
 
 check: selfcheck lint
 
