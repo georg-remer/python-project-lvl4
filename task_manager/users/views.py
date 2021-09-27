@@ -4,9 +4,10 @@ from django.urls import reverse_lazy
 from django.utils.translation import gettext as _
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
+from task_manager.mixins import PermissionDeniedMixin
+
 from .forms import UserForm
 from .mixins import SelfCheckMixin
-from task_manager.mixins import PermissionDeniedMixin
 
 
 class UserList(ListView):
@@ -19,7 +20,7 @@ class UserCreate(SuccessMessageMixin, CreateView):
     model = get_user_model()
     form_class = UserForm
     success_url = reverse_lazy('login')
-    success_message = _('User was successfully created.')
+    success_message = _('User was successfully created')
 
 
 class UserUpdate(PermissionDeniedMixin, SelfCheckMixin, SuccessMessageMixin, UpdateView):
@@ -27,7 +28,7 @@ class UserUpdate(PermissionDeniedMixin, SelfCheckMixin, SuccessMessageMixin, Upd
     model = get_user_model()
     form_class = UserForm
     success_url = reverse_lazy('users:list')
-    success_message = _('User was successfully updated.')
+    success_message = _('User was successfully updated')
 
 
 class UserDelete(PermissionDeniedMixin, SelfCheckMixin, SuccessMessageMixin, DeleteView):
@@ -35,4 +36,4 @@ class UserDelete(PermissionDeniedMixin, SelfCheckMixin, SuccessMessageMixin, Del
     model = get_user_model()
     form_class = UserForm
     success_url = reverse_lazy('users:list')
-    success_message = _('User was successfully deleted.')
+    success_message = _('User was successfully deleted')

@@ -3,9 +3,10 @@ from django.urls import reverse_lazy
 from django.utils.translation import gettext as _
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
+from task_manager.mixins import AuthRequiredMixin, PermissionDeniedMixin
+
 from .forms import StatusForm
 from .models import Status
-from task_manager.mixins import AuthRequiredMixin, PermissionDeniedMixin
 
 
 class StatusList(PermissionDeniedMixin, AuthRequiredMixin, ListView):

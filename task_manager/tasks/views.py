@@ -3,6 +3,7 @@ from django.urls import reverse_lazy
 from django.utils.translation import gettext as _
 from django.views.generic import CreateView, DeleteView, DetailView, UpdateView
 from django_filters.views import FilterView
+
 from task_manager.mixins import AuthRequiredMixin, PermissionDeniedMixin
 from task_manager.tasks.filters import TaskFilter
 
@@ -17,28 +18,24 @@ class TaskList(PermissionDeniedMixin, AuthRequiredMixin, FilterView):
     filterset_class = TaskFilter
 
 
-class TaskCreate(
-    PermissionDeniedMixin, AuthRequiredMixin, SuccessMessageMixin, CreateView
-):
+class TaskCreate(PermissionDeniedMixin, AuthRequiredMixin, SuccessMessageMixin, CreateView):
     template_name = 'tasks/create.html'
     model = Task
     form_class = TaskForm
     success_url = reverse_lazy('tasks:list')
-    success_message = _('Task was successfully created.')
+    success_message = _('Task was successfully created')
 
     def form_valid(self, form):
         form.instance.created_by = self.request.user
         return super().form_valid(form)
 
 
-class TaskUpdate(
-    PermissionDeniedMixin, AuthRequiredMixin, SuccessMessageMixin, UpdateView
-):
+class TaskUpdate(PermissionDeniedMixin, AuthRequiredMixin, SuccessMessageMixin, UpdateView):
     template_name = 'tasks/update.html'
     model = Task
     form_class = TaskForm
     success_url = reverse_lazy('tasks:list')
-    success_message = _('Task was successfully updated.')
+    success_message = _('Task was successfully updated')
 
 
 class TaskDelete(
@@ -52,11 +49,9 @@ class TaskDelete(
     model = Task
     form_class = TaskForm
     success_url = reverse_lazy('tasks:list')
-    success_message = _('Task was successfully deleted.')
+    success_message = _('Task was successfully deleted')
 
 
-class TaskDetail(
-    PermissionDeniedMixin, AuthRequiredMixin, SuccessMessageMixin, DetailView
-):
+class TaskDetail(PermissionDeniedMixin, AuthRequiredMixin, SuccessMessageMixin, DetailView):
     template_name = 'tasks/detail.html'
     model = Task
