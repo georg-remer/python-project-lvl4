@@ -1,3 +1,8 @@
+setup: copy-env install migrate
+
+copy-env:
+	cp -n .env.example .env
+
 install:
 	poetry install
 
@@ -13,7 +18,7 @@ test:
 test-coverage:
 	poetry run coverage run --source='.' manage.py test task_manager
 	coverage html
-	coverage report -m
+	coverage report
 
 check: selfcheck lint
 
