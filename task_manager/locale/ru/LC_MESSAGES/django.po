@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-27 17:48+0200\n"
+"POT-Creation-Date: 2021-09-27 18:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
+
 #: task_manager/labels/models.py:8 task_manager/statuses/models.py:8
 #: task_manager/tasks/models.py:12 task_manager/templates/labels/list.html:14
 #: task_manager/templates/statuses/list.html:14
@@ -156,17 +157,13 @@ msgstr "Метки"
 msgid "Logout"
 msgstr "Выход"
 
-#: task_manager/templates/base/main.html:45 task_manager/templates/login.html:5
+#: task_manager/templates/base/main.html:47 task_manager/templates/login.html:5
 msgid "Login"
 msgstr "Вход"
 
-#: task_manager/templates/base/main.html:49
+#: task_manager/templates/base/main.html:50
 msgid "Registration"
 msgstr "Регистрация"
-
-#: task_manager/templates/users/create.html:9
-msgid "Register"
-msgstr "Зарегистрировать"
 
 #: task_manager/templates/labels/create.html:5
 msgid "Create label"
@@ -258,6 +255,10 @@ msgstr "Изменение задачи"
 msgid "Create user"
 msgstr "Зарегистрировать"
 
+#: task_manager/templates/users/create.html:9
+msgid "Register"
+msgstr "Зарегистрировать"
+
 #: task_manager/templates/users/delete.html:5
 msgid "Delete user"
 msgstr "Удаление пользователя"
@@ -290,6 +291,10 @@ msgstr "Пользователь успешно изменён"
 msgid "User was successfully deleted"
 msgstr "Пользователь успешно удалён"
 
-#: task_manager/views.py:13
+#: task_manager/views.py:14
 msgid "Logged in successfully."
 msgstr "Вы залогинены"
+
+#: task_manager/views.py:19
+msgid "You are logged out"
+msgstr "Вы разлогинены"

@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import gettext as _
@@ -14,4 +15,6 @@ class LoginView(SuccessMessageMixin, LoginView):
 
 
 class LogoutView(LogoutView):
-    pass
+    def dispatch(self, request, *args, **kwargs):
+        messages.info(request, _('You are logged out'))
+        return super().dispatch(request, *args, **kwargs)
