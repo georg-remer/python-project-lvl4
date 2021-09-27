@@ -9,5 +9,6 @@
   {% buttons %}
   <input class="btn btn-primary" type="submit" value="{% block button_value %}{% endblock %}">
   {% endbuttons %}
+  <input type="hidden" name="next" value="{{ next }}">
 </form>
 {% endblock %}
