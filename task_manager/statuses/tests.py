@@ -18,7 +18,6 @@ class StatusTest(TestCase):
         )
 
     def assertStatus(self, status, data):
-        self.assertEqual(status.code, data['code'])
         self.assertEqual(status.name, data['name'])
 
     def test_get_statuses(self):
@@ -34,13 +33,12 @@ class StatusTest(TestCase):
     def test_post_statuses_create(self):
         """Tests POST /statuses/create/"""
         status_to_create = {
-            'code': 0,
             'name': 'Test',
         }
         response = self.client.post(reverse('statuses:create'), status_to_create)
 
         self.assertRedirects(response, reverse('statuses:list'))
-        status = Status.objects.get(code=status_to_create['code'])
+        status = Status.objects.get(name=status_to_create['name'])
         self.assertStatus(status, status_to_create)
 
     def test_get_statuses_update(self):
@@ -55,7 +53,6 @@ class StatusTest(TestCase):
         old_name = status.name
         new_name = old_name[::-1]
         status_to_update = {
-            'code': status.code,
             'name': new_name,
         }
         response = self.client.post(

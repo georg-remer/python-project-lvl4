@@ -9,7 +9,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>{% translate "code"|capfirst %}</th>
       <th>{% translate "name"|capfirst %}</th>
       <th>{% translate "created date"|capfirst %}</th>
       <th></th>
@@ -18,7 +17,6 @@
   <tbody>
     {% for status in status_list %}
     <tr>
-      <td>{{ status.code }}</td>
       <td>{{ status.name }}</td>
       <td>{{ status.created_at|date:"d.m.Y H:i" }}</td>
       <td>
