@@ -94,19 +94,17 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+db_config = dj_database_url.config()
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': {**db_config},
 }
 
-PG_IS_ENABLED = os.getenv('PG_IS_ENABLED') == 'True'
+USE_SQLLITE = os.getenv('USE_SQLLITE') == 'False'
 
-if PG_IS_ENABLED:
-    db_config = dj_database_url.config()
-    DATABASES = {
-        'default': {**db_config},
+if USE_SQLLITE:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 
 # Password validation
