@@ -1,4 +1,4 @@
-setup: install migrate
+setup: copy-env install migrate
 
 copy-env:
 	cp -n .env.example .env
