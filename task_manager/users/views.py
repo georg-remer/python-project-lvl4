@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.utils.translation import gettext as _
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
-from task_manager.mixins import PermissionDeniedMixin
+from task_manager.mixins import PermissionDeniedMixin, SuccessMessageDeleteMixin
 
 from .forms import UserForm
 from .mixins import SelfCheckMixin
@@ -31,7 +31,7 @@ class UserUpdate(PermissionDeniedMixin, SelfCheckMixin, SuccessMessageMixin, Upd
     success_message = _('User was successfully updated')
 
 
-class UserDelete(PermissionDeniedMixin, SelfCheckMixin, SuccessMessageMixin, DeleteView):
+class UserDelete(PermissionDeniedMixin, SelfCheckMixin, SuccessMessageDeleteMixin, DeleteView):
     template_name = 'users/delete.html'
     model = get_user_model()
     form_class = UserForm
