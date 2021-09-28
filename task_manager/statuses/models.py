@@ -6,7 +6,7 @@ from django.utils.translation import gettext_lazy as _
 
 class Status(models.Model):
     created_at = models.DateTimeField(_('created date'), default=timezone.now)
-    name = models.TextField(_('name'), unique=True)
+    name = models.CharField(_('name'), max_length=250, unique=True)
 
     def get_absolute_url(self):
         return reverse('statuses:list')
