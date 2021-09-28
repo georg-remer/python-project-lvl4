@@ -101,7 +101,7 @@ DATABASES = {
     }
 }
 
-db_config = dj_database_url.config()
+# db_config = dj_database_url.config()
 
 # if db_config:
 #     DATABASES = {
