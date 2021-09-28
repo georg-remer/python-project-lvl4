@@ -33,7 +33,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'secret-key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG') == 'True'
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split()
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*').split()
 
 
 # Application definition
@@ -94,17 +94,18 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-db_config = dj_database_url.config()
 DATABASES = {
-    'default': {**db_config},
-}
-
-USE_SQLLITE = os.getenv('USE_SQLLITE') == 'False'
-
-if USE_SQLLITE:
-    DATABASES['default'] = {
+    'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
+db_config = dj_database_url.config()
+
+if db_config:
+    DATABASES = {
+        'default': {**db_config},
     }
 
 # Password validation
