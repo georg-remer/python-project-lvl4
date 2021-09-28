@@ -15,7 +15,7 @@ from pathlib import Path
 
 from django.urls import reverse_lazy
 
-# import dj_database_url
+import dj_database_url
 from dotenv import load_dotenv
 
 # Load environment variables
@@ -101,12 +101,12 @@ DATABASES = {
     }
 }
 
-# db_config = dj_database_url.config()
+db_config = dj_database_url.config()
 
-# if db_config:
-#     DATABASES = {
-#         'default': {**db_config},
-#     }
+if db_config:
+    DATABASES = {
+        'default': {**db_config},
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
