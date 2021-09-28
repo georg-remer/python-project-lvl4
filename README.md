@@ -7,5 +7,5 @@
 Simple task manager to explore and implement major Django features.
 
 ## Demo
-
+  
 https://secret-ocean-81218.herokuapp.com
