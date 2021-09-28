@@ -103,10 +103,10 @@ DATABASES = {
 
 db_config = dj_database_url.config()
 
-if db_config:
-    DATABASES = {
-        'default': {**db_config},
-    }
+# if db_config:
+#     DATABASES = {
+#         'default': {**db_config},
+#     }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
