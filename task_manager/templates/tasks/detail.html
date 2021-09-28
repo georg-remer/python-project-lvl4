@@ -15,12 +15,12 @@
     <hr>
     <div class="container">
       <div class="row p-1">
-        <div class="col">{% translate "created_by"|capfirst %}</div>
-        <div class="col">{{ task.created_by }}</div>
+        <div class="col">{% translate "creator"|capfirst %}</div>
+        <div class="col">{{ task.creator }}</div>
       </div>
       <div class="row p-1">
-        <div class="col">{% translate "responsible"|capfirst %}</div>
-        <div class="col">{{ task.responsible }}</div>
+        <div class="col">{% translate "executor"|capfirst %}</div>
+        <div class="col">{{ task.executor }}</div>
       </div>
       <div class="row p-1">
         <div class="col">{% translate "status"|capfirst %}</div>

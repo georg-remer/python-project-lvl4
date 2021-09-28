@@ -21,7 +21,7 @@ class TaskTest(TestCase):
         self.assertEqual(task.name, data['name'])
         self.assertEqual(task.description, data['description'])
         self.assertEqual(task.status.id, data['status'])
-        self.assertEqual(task.responsible.id, data['responsible'])
+        self.assertEqual(task.executor.id, data['executor'])
 
     def test_get_tasks(self):
         """Tests GET /tasks/"""
@@ -39,7 +39,7 @@ class TaskTest(TestCase):
             'name': 'Test',
             'description': 'Test description',
             'status': 1,
-            'responsible': 9,
+            'executor': 9,
         }
         response = self.client.post(reverse('tasks:create'), task_to_create)
 
@@ -62,7 +62,7 @@ class TaskTest(TestCase):
             'name': new_name,
             'description': 'Test description',
             'status': 1,
-            'responsible': 9,
+            'executor': 9,
         }
         response = self.client.post(
             reverse('tasks:update', args=[task.pk]),

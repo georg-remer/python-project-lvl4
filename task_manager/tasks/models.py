@@ -10,11 +10,11 @@ from task_manager.statuses.models import Status
 
 class Task(models.Model):
     created_at = models.DateTimeField(_('created date'), default=timezone.now)
-    created_by = models.ForeignKey(
+    creator = models.ForeignKey(
         get_user_model(),
         on_delete=models.PROTECT,
-        related_name='created_by',
-        verbose_name=_('created_by'),
+        related_name='creator',
+        verbose_name=_('creator'),
     )
     name = models.CharField(_('name'), max_length=250, unique=True)
     description = models.TextField(_('description'), blank=True)
@@ -24,13 +24,13 @@ class Task(models.Model):
         related_name='status',
         verbose_name=_('status'),
     )
-    responsible = models.ForeignKey(
+    executor = models.ForeignKey(
         get_user_model(),
         on_delete=models.PROTECT,
-        related_name='responsible',
+        related_name='executor',
         blank=True,
         null=True,
-        verbose_name=_('responsible'),
+        verbose_name=_('executor'),
     )
     labels = models.ManyToManyField(
         Label,

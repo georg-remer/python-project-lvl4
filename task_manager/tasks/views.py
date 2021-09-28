@@ -26,7 +26,7 @@ class TaskCreate(PermissionDeniedMixin, AuthRequiredMixin, SuccessMessageMixin, 
     success_message = _('Task was successfully created')
 
     def form_valid(self, form):
-        form.instance.created_by = self.request.user
+        form.instance.creator = self.request.user
         return super().form_valid(form)
 
 
