@@ -15,7 +15,7 @@ from pathlib import Path
 
 from django.urls import reverse_lazy
 
-import dj_database_url
+# import dj_database_url
 from dotenv import load_dotenv
 
 # Load environment variables
