@@ -195,7 +195,7 @@ msgstr "id"
 #: task_manager/templates/users/list.html:27
 #: task_manager/templates/users/update.html:9
 msgid "Update"
-msgstr "Обновить"
+msgstr "Изменить"
 
 #: task_manager/templates/labels/list.html:27
 #: task_manager/templates/statuses/list.html:27
