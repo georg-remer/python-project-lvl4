@@ -101,7 +101,7 @@ DATABASES = {
     }
 }
 
-PG_IS_ENABLED = os.getenv('PG_IS_ENABLED') == 'True'
+PG_IS_ENABLED = os.getenv('PG_IS_ENABLED', 'False') == 'True'
 
 if PG_IS_ENABLED:
     db_config = dj_database_url.config()
