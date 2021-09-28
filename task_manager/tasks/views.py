@@ -4,7 +4,7 @@ from django.utils.translation import gettext as _
 from django.views.generic import CreateView, DeleteView, DetailView, UpdateView
 from django_filters.views import FilterView
 
-from task_manager.mixins import AuthRequiredMixin, PermissionDeniedMixin
+from task_manager.mixins import AuthRequiredMixin, PermissionDeniedMixin, SuccessMessageDeleteMixin
 from task_manager.tasks.filters import TaskFilter
 
 from .forms import TaskForm
@@ -38,13 +38,7 @@ class TaskUpdate(PermissionDeniedMixin, AuthRequiredMixin, SuccessMessageMixin, 
     success_message = _('Task was successfully updated')
 
 
-class TaskDelete(
-    PermissionDeniedMixin,
-    AuthRequiredMixin,
-    CheckCreatedByMixin,
-    SuccessMessageMixin,
-    DeleteView,
-):
+class TaskDelete(PermissionDeniedMixin, AuthRequiredMixin, CheckCreatedByMixin, SuccessMessageDeleteMixin, DeleteView):
     template_name = 'tasks/delete.html'
     model = Task
     form_class = TaskForm

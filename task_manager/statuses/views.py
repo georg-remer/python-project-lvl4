@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from django.utils.translation import gettext as _
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
-from task_manager.mixins import AuthRequiredMixin, PermissionDeniedMixin
+from task_manager.mixins import AuthRequiredMixin, PermissionDeniedMixin, SuccessMessageDeleteMixin
 
 from .forms import StatusForm
 from .models import Status
@@ -30,7 +30,7 @@ class StatusUpdate(PermissionDeniedMixin, AuthRequiredMixin, SuccessMessageMixin
     success_message = _('Status was successfully updated.')
 
 
-class StatusDelete(PermissionDeniedMixin, AuthRequiredMixin, SuccessMessageMixin, DeleteView):
+class StatusDelete(PermissionDeniedMixin, AuthRequiredMixin, SuccessMessageDeleteMixin, DeleteView):
     template_name = 'statuses/delete.html'
     model = Status
     form_class = StatusForm

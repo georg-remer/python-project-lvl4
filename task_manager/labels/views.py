@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 from django.utils.translation import gettext as _
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
-from task_manager.mixins import AuthRequiredMixin, PermissionDeniedMixin
+from task_manager.mixins import AuthRequiredMixin, PermissionDeniedMixin, SuccessMessageDeleteMixin
 
 from .forms import LabelForm
 from .models import Label
@@ -32,7 +32,7 @@ class LabelUpdate(PermissionDeniedMixin, AuthRequiredMixin, SuccessMessageMixin,
     success_message = _('Label was successfully updated')
 
 
-class LabelDelete(PermissionDeniedMixin, AuthRequiredMixin, SuccessMessageMixin, DeleteView):
+class LabelDelete(PermissionDeniedMixin, AuthRequiredMixin, SuccessMessageDeleteMixin, DeleteView):
     template_name = 'labels/delete.html'
     model = Label
     form_class = LabelForm
