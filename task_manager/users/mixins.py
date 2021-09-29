@@ -8,6 +8,8 @@ class SelfCheckMixin(UserPassesTestMixin):
         return self.get_object() == self.request.user
 
     def dispatch(self, request, *args, **kwargs):
-        self.permission_denied_message = _('You do not have permission to modify another user.')
+        self.permission_denied_message = _(
+            'You do not have permission to modify another user.'
+        )
         self.permission_denied_url = reverse_lazy('users:list')
         return super().dispatch(request, *args, **kwargs)

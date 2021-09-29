@@ -5,7 +5,11 @@ from django.urls import reverse_lazy
 from django.utils.translation import gettext as _
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
-from task_manager.mixins import AuthRequiredMixin, PermissionDeniedMixin, SuccessMessageDeleteMixin
+from task_manager.mixins import (
+    AuthRequiredMixin,
+    PermissionDeniedMixin,
+    SuccessMessageDeleteMixin,
+)
 
 from .forms import LabelForm
 from .models import Label
@@ -16,7 +20,9 @@ class LabelList(PermissionDeniedMixin, AuthRequiredMixin, ListView):
     model = Label
 
 
-class LabelCreate(PermissionDeniedMixin, AuthRequiredMixin, SuccessMessageMixin, CreateView):
+class LabelCreate(
+    PermissionDeniedMixin, AuthRequiredMixin, SuccessMessageMixin, CreateView
+):
     template_name = 'labels/create.html'
     model = Label
     form_class = LabelForm
@@ -24,7 +30,9 @@ class LabelCreate(PermissionDeniedMixin, AuthRequiredMixin, SuccessMessageMixin,
     success_message = _('Label was successfully created')
 
 
-class LabelUpdate(PermissionDeniedMixin, AuthRequiredMixin, SuccessMessageMixin, UpdateView):
+class LabelUpdate(
+    PermissionDeniedMixin, AuthRequiredMixin, SuccessMessageMixin, UpdateView
+):
     template_name = 'labels/update.html'
     model = Label
     form_class = LabelForm
@@ -32,7 +40,9 @@ class LabelUpdate(PermissionDeniedMixin, AuthRequiredMixin, SuccessMessageMixin,
     success_message = _('Label was successfully updated')
 
 
-class LabelDelete(PermissionDeniedMixin, AuthRequiredMixin, SuccessMessageDeleteMixin, DeleteView):
+class LabelDelete(
+    PermissionDeniedMixin, AuthRequiredMixin, SuccessMessageDeleteMixin, DeleteView
+):
     template_name = 'labels/delete.html'
     model = Label
     form_class = LabelForm
@@ -41,7 +51,9 @@ class LabelDelete(PermissionDeniedMixin, AuthRequiredMixin, SuccessMessageDelete
 
     def delete(self, request, *args, **kwargs):
         if self.get_object().labels.all().exists():
-            messages.error(self.request, _('Unable to delete label because it is in use'))
+            messages.error(
+                self.request, _('Unable to delete label because it is in use')
+            )
             return redirect('labels:list')
 
         return super().delete(request, *args, **kwargs)

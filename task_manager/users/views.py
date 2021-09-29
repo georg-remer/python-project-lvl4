@@ -23,7 +23,9 @@ class UserCreate(SuccessMessageMixin, CreateView):
     success_message = _('User was successfully created')
 
 
-class UserUpdate(PermissionDeniedMixin, SelfCheckMixin, SuccessMessageMixin, UpdateView):
+class UserUpdate(
+    PermissionDeniedMixin, SelfCheckMixin, SuccessMessageMixin, UpdateView
+):
     template_name = 'users/update.html'
     model = get_user_model()
     form_class = UserForm
@@ -31,7 +33,9 @@ class UserUpdate(PermissionDeniedMixin, SelfCheckMixin, SuccessMessageMixin, Upd
     success_message = _('User was successfully updated')
 
 
-class UserDelete(PermissionDeniedMixin, SelfCheckMixin, SuccessMessageDeleteMixin, DeleteView):
+class UserDelete(
+    PermissionDeniedMixin, SelfCheckMixin, SuccessMessageDeleteMixin, DeleteView
+):
     template_name = 'users/delete.html'
     model = get_user_model()
     form_class = UserForm
