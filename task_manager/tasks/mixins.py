@@ -8,6 +8,6 @@ class CheckCreatedByMixin(UserPassesTestMixin):
         return self.get_object().creator == self.request.user
 
     def dispatch(self, request, *args, **kwargs):
-        self.permission_denied_message = _("You do not have permission to delete another user's task.")
+        self.permission_denied_message = _('A task can only be deleted by its author')
         self.permission_denied_url = reverse_lazy('tasks:list')
         return super().dispatch(request, *args, **kwargs)

@@ -21,7 +21,7 @@ class StatusCreate(PermissionDeniedMixin, AuthRequiredMixin, SuccessMessageMixin
     model = Status
     form_class = StatusForm
     success_url = reverse_lazy('statuses:list')
-    success_message = _('Status was successfully created.')
+    success_message = _('Status was successfully created')
 
 
 class StatusUpdate(PermissionDeniedMixin, AuthRequiredMixin, SuccessMessageMixin, UpdateView):
@@ -29,7 +29,7 @@ class StatusUpdate(PermissionDeniedMixin, AuthRequiredMixin, SuccessMessageMixin
     model = Status
     form_class = StatusForm
     success_url = reverse_lazy('statuses:list')
-    success_message = _('Status was successfully updated.')
+    success_message = _('Status was successfully updated')
 
 
 class StatusDelete(PermissionDeniedMixin, AuthRequiredMixin, SuccessMessageDeleteMixin, DeleteView):
@@ -37,7 +37,7 @@ class StatusDelete(PermissionDeniedMixin, AuthRequiredMixin, SuccessMessageDelet
     model = Status
     form_class = StatusForm
     success_url = reverse_lazy('statuses:list')
-    success_message = _('Status was successfully deleted.')
+    success_message = _('Status was successfully deleted')
 
     def delete(self, request, *args, **kwargs):
         if self.get_object().status.all().exists():
